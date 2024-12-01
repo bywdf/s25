@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app01',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,22 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+##### sms ####
+# 腾讯短信
+TENCENT_SMS_APP_ID = 1400302209
+TENCENT_SMS_APP_KEY ="8cc5bf076454953306e6668187930804"
+# 短信签名
+TENCENT_SMS_SIGN = "Python之路"
+# 模板ID
+TENCENT_SMS_TEMPLATE = {
+    'register': 548760,
+    'login': 548761,
+}
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
