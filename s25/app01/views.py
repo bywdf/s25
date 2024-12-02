@@ -40,8 +40,14 @@ class RegisterModelForm(forms.ModelForm):
     
     class Meta:
         model = models.UserInfo
-        fields = "__all__"
+        # fields = "__all__"   下面手动调整页面的field顺序
+        fields = ['username', 'email', 'password', 'confirm_password', 'mobile_phone', 'code' ]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for name,field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.widget.attrs['placeholder'] = '请输入{}'.format(field.label)
 
 def register(request):
     '''注册'''
