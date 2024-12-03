@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app01',
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,12 @@ TENCENT_SMS_SIGN = "Python之路"
 TENCENT_SMS_TEMPLATE = {
     'register': 548760,
     'login': 548761,
+}
+
+
+# 缓存设置
+CACHES = {
+    
 }
 
 
